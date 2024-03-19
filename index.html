@@ -1,12 +1,33 @@
 <html>
   <head>
-    <title>Testing</title>
-<script>
-  
-</script>
-    
+    <title>Test Idea</title>
+    <script>
+let beep = new Audio('beep_01.mp3'); // Replace 'beep.mp3' with the path to your beep sound file
+let beep2 = new Audio('beep_02.mp3'); // Replace 'beep.mp3' with the path to your beep sound file
+function beepOnSecondZero() {
+    setInterval(function() {
+        let date = new Date();
+        let seconds = date.getSeconds();
+        
+        if (seconds === 59) {
+            // Create an audio element and play a beep sound
+			//let beep = new Audio('beep_01.mp3'); // Replace 'beep.mp3' with the path to your beep sound file
+            beep.play();
+        }
+		if (seconds === 55) { //} || seconds === 57 || seconds === 58 || seconds === 59) {
+            //let beep = new Audio('beep_02.mp3'); // Replace 'beep.mp3' with the path to your beep sound file
+            beep2.play();
+		}
+		
+    }, 1000); // Check every second
+}
+
+// Call the function to start beeping on every second zero
+beepOnSecondZero();
+
+    </script>
   </head>
   <body>
-    Testing body
+    Test beep on 00
   </body>
 </html>
