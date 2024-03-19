@@ -2,6 +2,7 @@
   <head>
     <title>Test Idea</title>
     <script>
+var clock_span = document.getElementById('span#clock_span');
 let beep = new Audio('beep_01.mp3'); // Replace 'beep.mp3' with the path to your beep sound file
 let beep2 = new Audio('beep_02.mp3'); // Replace 'beep.mp3' with the path to your beep sound file
 function beepOnSecondZero() {
@@ -14,10 +15,17 @@ function beepOnSecondZero() {
 			//let beep = new Audio('beep_01.mp3'); // Replace 'beep.mp3' with the path to your beep sound file
             beep.play();
         }
-		if (seconds === 55) { //} || seconds === 57 || seconds === 58 || seconds === 59) {
+	if (seconds === 55) { //} || seconds === 57 || seconds === 58 || seconds === 59) {
             //let beep = new Audio('beep_02.mp3'); // Replace 'beep.mp3' with the path to your beep sound file
             beep2.play();
-		}
+	}
+	//show time
+	var s = date.getSeconds();
+	var m = date.getMinutes();
+	var h = date.getHours();
+	clock_span.textContent =
+	("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2);
+
 		
     }, 1000); // Check every second
 }
@@ -25,10 +33,12 @@ function beepOnSecondZero() {
 // Call the function to start beeping on every second zero
 beepOnSecondZero();
 
+setInterval(time, 1000);
+
     </script>
   </head>
   <body>
 	<h3>Ring</h3>
-    Test beep on 00
+    	<span id="clock_span"></span>
   </body>
 </html>
